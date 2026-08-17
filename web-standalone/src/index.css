@@ -1,0 +1,95 @@
+/* Fonts — loaded locally via Fontsource (no external network calls at runtime). */
+@import "@fontsource-variable/fraunces/index.css";
+@import "@fontsource/ibm-plex-sans/400.css";
+@import "@fontsource/ibm-plex-sans/500.css";
+@import "@fontsource/ibm-plex-sans/600.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * CSS-variable mirror of the design tokens (see tailwind.config.js).
+ * Inline SVG charts and a few raw-CSS contexts read from here so there is
+ * still a single conceptual source of truth.
+ */
+:root {
+  --paper: #fbfaf7;
+  --surface: #ffffff;
+  --sunken: #f4f2ec;
+  --ink: #1c1b19;
+  --ink-soft: #52504a;
+  --ink-mute: #8a867d;
+  --line: #e7e3da;
+  --line-strong: #d6d1c5;
+  --accent: #2e5d4b;
+  --ok: #3f7a5e;
+  --warn: #b07414;
+  --danger: #a23b33;
+  --info: #3a5a78;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    font-feature-settings: "ss01", "cv05";
+  }
+
+  /* Fraunces optical sizing — let it bloom at display sizes. */
+  .font-display {
+    font-optical-sizing: auto;
+    font-variation-settings: "SOFT" 0, "WONK" 0;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display text-ink;
+    font-optical-sizing: auto;
+  }
+
+  ::selection {
+    background: #d9e4dd;
+    color: var(--ink);
+  }
+
+  /* Calm focus ring, accent-tinted. */
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+
+  /* Thin, unobtrusive scrollbars. */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--line-strong) transparent;
+  }
+}
+
+@layer components {
+  /* Skeleton shimmer used by loading states. */
+  .skeleton {
+    @apply rounded bg-sunken;
+    background-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.6) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    @apply animate-shimmer;
+  }
+
+  /* Numeric / tabular figures for data tables and scores. */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+}

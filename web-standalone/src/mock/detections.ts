@@ -1,0 +1,61 @@
+import type { DetectionHit } from "@/lib/types";
+
+// Deepfake / Fake-Account-Feed — UI-only.
+// // TODO: backend — Crawler, Bild-/Stimm-Matching, Konfidenz-Modell.
+export const detections: DetectionHit[] = [
+  {
+    id: "det-1",
+    kind: "fake-profile",
+    platform: "Instagram",
+    handle: "@lena.kessler_official",
+    confidence: 0.94,
+    detected: "2026-06-17T08:42:00",
+    status: "new",
+    reference: "Dein echtes Instagram-Profil + Profilfoto",
+    note: "Konto kopiert Profilfoto und Bio nahezu wörtlich, folgt deinen Kontakten und bewirbt Krypto-Gewinnspiele.",
+  },
+  {
+    id: "det-2",
+    kind: "deepfake-video",
+    platform: "TikTok",
+    handle: "@finance.tips.de",
+    confidence: 0.81,
+    detected: "2026-06-15T13:10:00",
+    status: "reviewing",
+    reference: "Öffentliches Konferenz-Video (2025)",
+    note: "Mutmaßlich KI-generiertes Sprechervideo mit deinem Gesicht; Lippensynchronität und Blinzelmuster auffällig.",
+  },
+  {
+    id: "det-3",
+    kind: "voice-clone",
+    platform: "WhatsApp (gemeldet)",
+    handle: "+49 1525 ••• ••••",
+    confidence: 0.67,
+    detected: "2026-06-12T20:30:00",
+    status: "reviewing",
+    reference: "Sprachnachrichten-Stil",
+    note: "Ein Kontakt meldete eine Sprachnachricht in deinem Tonfall mit Bitte um Geldüberweisung. Konfidenz mittel.",
+  },
+  {
+    id: "det-4",
+    kind: "fake-profile",
+    platform: "LinkedIn",
+    handle: "Lena Keßler — Beraterin",
+    confidence: 0.88,
+    detected: "2026-06-08T09:00:00",
+    status: "takedown-requested",
+    reference: "Dein berufliches LinkedIn-Profil",
+    note: "Doppelprofil mit leicht abweichender Schreibweise, identischem Foto. Takedown-Antrag eingereicht.",
+  },
+  {
+    id: "det-5",
+    kind: "deepfake-image",
+    platform: "X (Twitter)",
+    handle: "@news_ticker_eu",
+    confidence: 0.72,
+    detected: "2026-05-30T17:25:00",
+    status: "resolved",
+    reference: "Pressefoto",
+    note: "Manipuliertes Bild in irreführendem Kontext. Plattform hat Inhalt entfernt.",
+  },
+];

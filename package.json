@@ -1,0 +1,21 @@
+{
+  "name": "identity-control-plane",
+  "private": true,
+  "version": "0.2.0",
+  "type": "module",
+  "workspaces": ["shared", "server", "web", "web-standalone"],
+  "scripts": {
+    "dev": "concurrently -n api,web,mock -c green,blue,magenta \"npm:dev:api\" \"npm:dev:web\" \"npm:dev:standalone\"",
+    "dev:backend": "concurrently -n api,web -c green,blue \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:api": "npm -w server run dev",
+    "dev:web": "npm -w web run dev",
+    "dev:standalone": "npm -w web-standalone run dev",
+    "seed": "npm -w server run seed",
+    "build": "npm -w web run build && npm -w web-standalone run build",
+    "test": "npm -w server run test",
+    "typecheck": "npm -w server run typecheck && npm -w web run typecheck && npm -w web-standalone run typecheck"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
