@@ -4,6 +4,19 @@
 > Eine zentrale Steuerebene zwischen Nutzer und Internet, die die Komplexität der
 > eigenen digitalen Identität sichtbar, verständlich und steuerbar macht.
 
+## Worum es geht
+
+Deine digitale Identität ist heute über Dutzende Dienste, Datenhändler, Leaks und
+Suchtreffer verstreut — niemand hat den Überblick, am wenigsten du selbst. Die
+**Identity Control Plane** bündelt all das an einem Ort und macht es steuerbar:
+Sie zeigt, **was über dich existiert** (Accounts, Data-Broker, Datenlecks,
+Suchtreffer), **wie du wahrgenommen wirst** (aus Sicht von Recruitern,
+Versicherern, der Öffentlichkeit), hilft beim **Durchsetzen deiner Datenrechte**
+(DSGVO-Auskunft, Widerspruch, Löschung), beim Regeln des **digitalen Nachlasses**
+und beim **Überwachen** von Fake-Profilen, Deepfakes und Agenten, die in deinem
+Namen handeln. Ziel ist Souveränität: verstehen, was draußen über einen kursiert —
+und selbst entscheiden, was damit passiert.
+
 Dies ist ein **Prototyp für Nutzer-Feedback und Pitch-Demos** — kein
 Produktivsystem. Das Repo ist ein npm-Workspace-Monorepo und liefert **zwei
 parallel lauffähige Varianten** derselben Oberfläche:
